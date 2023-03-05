@@ -1,33 +1,43 @@
+import { useEffect } from 'react';
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import * as api from './api/api.js'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    api.getTasks().then(setTasks)
+  },[])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <header>my crud</header>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Options</th>
+        </tr>
+        {
+          tasks.map(task => {
+            return(
+              <tr>
+                <td>{task.name}</td>
+                <td>{task.description}</td>
+                <td>{task.date}</td>
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                  <button>Done</button>
+                </td>
+              </tr>
+            )
+          })
+        }
+      </table>
+    </>
   )
 }
 
