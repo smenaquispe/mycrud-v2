@@ -1,42 +1,14 @@
-import { useEffect } from 'react';
-import { useState } from 'react'
-import * as api from './api/api.js'
+import { useFetch } from './custom/useFetch.js'
+import TaskTable from './components/taskTable.jsx'
 
 function App() {
 
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    api.getTasks().then(setTasks)
-  },[])
+  const tasks = useFetch('http://localhost:4000/tasks')
 
   return (
     <>
       <header>my crud</header>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Date</th>
-          <th>Options</th>
-        </tr>
-        {
-          tasks.map(task => {
-            return(
-              <tr>
-                <td>{task.name}</td>
-                <td>{task.description}</td>
-                <td>{task.date}</td>
-                <td>
-                  <button>Edit</button>
-                  <button>Delete</button>
-                  <button>Done</button>
-                </td>
-              </tr>
-            )
-          })
-        }
-      </table>
+      <TaskTable tasks={tasks}></TaskTable>
     </>
   )
 }
