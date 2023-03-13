@@ -1,5 +1,16 @@
+import { Link } from 'react-router-dom'
+
+/**
+ * 
+ * @param {Array} tasks
+ * @returns rendering of table
+ */
+
 function TaskTable({tasks}){
     return(
+        <>
+        <header>my crud</header>
+        <Link to={'/add'}><button>add</button></Link>
         <table>
         <tr>
           <th>Name</th>
@@ -23,8 +34,8 @@ function TaskTable({tasks}){
                 )
             })
             }
-        </table>
-
+        </table>   
+        </>
     )
 }
 
