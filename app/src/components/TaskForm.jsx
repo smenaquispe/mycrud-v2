@@ -1,68 +1,63 @@
 import { doAction } from '../utils/apiFunctions';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Form from './Form';
 
 function TaskForm({operation}){
     
+    // para redireccionamiento
+    const navigate = useNavigate()
+
+    // pasamos el id, si es que es necesrio buscar task con ese id
     const { id } = useParams();
+
+    // seteamos task como null por defecto
     const [task, setTask] = useState(null);
 
-    // prevenimos el submit y realizamos la action correspondiente
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        doAction(operation, task)
-    }
-        
+    // esto solo pasa si tenemos el id, y no el task, significa que debemos de byscar el task y setar
     useEffect(() => {
         // si tenemos un id y no hay task, sera para actualizar y tendremos valores ya
         if(id && !task) {
             doAction(id) // realiza un get para obtener el task con el id enviado
             .then(res => {
                 setTask({
+                    id: id, 
                     name: res['name'],
                     description: res['description'],
                     date: res['date']
                 })
             })
         }
+
     }, [task])
+    
+    // prevenimos el submit y realizamos la action correspondiente
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await doAction(operation, JSON.stringify(task))
+        navigate('/')
+    }
 
 
     // cuando el form cambia, el task se actualiza
-    const handleTask = (e) => {
-        const formData = new FormData(e.currentTarget)
-
-        const newTask = {
-            name: formData.get('name'),
-            description: formData.get('description'),
-            date: formData.get('date')
-        }
+    const handleInputs = (e) => {
+        const { name, value } = e.target 
         
-        if(id) newTask['id'] = id 
-
-        setTask(JSON.stringify(newTask));
+        setTask({
+            ...task,
+            [name] : value
+        })
     }
 
     return(
         <>
         {
-            task ?
-            (
-                <form method="post" className='taskForm' onSubmit={handleSubmit} onChange={handleTask}>
-                    <input className="name" type="text" name="name" value={task['name']}  placeholder="Nombre de la tarea"  required />
-                    <textarea className="description" name="description" value={task['description']} placeholder="Descripcion de la tarea" cols="30" rows="10" required></textarea>
-                    <input className="date" type="date" name="date" value={task['date']} required />
-                    <button type='submit'>Enviar</button>
-                </form>
-            ) : 
-            (
-                <form method="post" className='taskForm' onSubmit={handleSubmit} onChange={handleTask}>
-                    <input className="name" type="text" name="name" placeholder="Nombre de la tarea" required />
-                    <textarea className="description" name="description" placeholder="Descripcion de la tarea" cols="30" rows="10" required></textarea>
-                    <input className="date" type="date" name="date" required />
-                    <button type='submit'>Enviar</button>
-                </form>
-            )
+            <Form 
+                task={task}
+                handleSubmit={(e) => handleSubmit(e)}
+                handleInputs={(e) => handleInputs(e)}
+            />
         }
         </>
     

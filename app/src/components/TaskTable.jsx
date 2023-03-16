@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { doAction } from '../utils/apiFunctions.js'
 
 function TaskTable(){
 
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState(null)
     
+    
+    // obtener la lista de tasks
     useEffect(() => {
-        fetch('http://localhost:4000/tasks')
-        .then(res => res.json())
+        doAction()
         .then(setTasks)
-        .then(console.log)
     }, [])
 
+    if(!tasks)
+    return <h1>Loading...</h1>
 
     return(
         <>

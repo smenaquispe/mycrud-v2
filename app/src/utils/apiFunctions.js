@@ -16,8 +16,7 @@ export async function doAction(op, task){
         }
     }
 
-
-    const response = await fetch(`http://localhost:4000/tasks/${op}`, 
+    const response = await fetch(`http://localhost:4000/tasks/${op || ''}`, 
         info
     )
     .then(res => res.json())
