@@ -22,6 +22,15 @@ function TaskTable(){
         .then(navigate(0))
     }
 
+    // marcar una task como hecho
+    const doTask = (e, id) => {
+
+        doAction('toggleDone', JSON.stringify({id}))
+        .then(res => res)
+        .then(res => e.target.checked = (res.Response.done))
+
+    }
+
 
     if(!tasks)
     return <h1>Loading...</h1>
@@ -50,7 +59,7 @@ function TaskTable(){
                         <td>
                         <Link to={`/edit/${task._id}`} ><button>Edit</button></Link> 
                         <button onClick={e => deleteTask(task._id)}>Delete</button>
-                        <button>Done</button>
+                        <input onChange={e => doTask(e, task._id)} type="checkbox" name="done" id="done" checked={task.done} />
                         </td>
                     </tr>
                     )
