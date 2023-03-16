@@ -1,36 +1,17 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { doAction } from '../utils/apiFunctions.js'
-import { useNavigate } from 'react-router-dom'
+import Task from './Task'
 
 function TaskTable(){
 
     const [tasks, setTasks] = useState(null)
-    const navigate = useNavigate()
     
     // obtener la lista de tasks
     useEffect(() => {
         doAction()
         .then(setTasks)
     }, [])
-
-
-    // eliminar un task
-    const deleteTask = id => {
-        doAction('delete', JSON.stringify({id}))
-        .then(console.log)
-        .then(navigate(0))
-    }
-
-    // marcar una task como hecho
-    const doTask = (e, id) => {
-
-        doAction('toggleDone', JSON.stringify({id}))
-        .then(res => res)
-        .then(res => e.target.checked = (res.Response.done))
-
-    }
-
 
     if(!tasks)
     return <h1>Loading...</h1>
@@ -52,16 +33,7 @@ function TaskTable(){
                 {
                 tasks.map(task => {
                     return(
-                    <tr key={task._id} id={task._id}>
-                        <td>{task.name}</td>
-                        <td>{task.description}</td>
-                        <td>{task.date}</td>
-                        <td>
-                        <Link to={`/edit/${task._id}`} ><button>Edit</button></Link> 
-                        <button onClick={e => deleteTask(task._id)}>Delete</button>
-                        <input onChange={e => doTask(e, task._id)} type="checkbox" name="done" id="done" checked={task.done} />
-                        </td>
-                    </tr>
+                        <Task task={task} />
                     )
                 })
                 }
