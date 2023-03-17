@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
-import DeleteButton from './DeleteButton'
-import EditButton from './EditButton';
-import DoneCheckBox from './DoneCheckBox';
+import { EditButton, DeleteButton } from './Buttons'
+import DoneCheckBox from './DoneCheckBox'
 
 function Task({task}){
     return (

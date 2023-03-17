@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { doAction } from '../utils/apiFunctions.js'
 import Task from './Task'
-import AddButton from './AddButton.jsx'
+import { AddButton } from './Buttons.jsx'
 
 function TaskTable(){
 
