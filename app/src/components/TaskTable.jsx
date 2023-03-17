@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { doAction } from '../utils/apiFunctions.js'
 import Task from './Task'
+import AddButton from './AddButton.jsx'
 
 function TaskTable(){
 
@@ -18,8 +19,7 @@ function TaskTable(){
 
     return(
         <>
-        <header>my crud</header>
-        <Link to={'/add'}><button>add</button></Link>
+        <AddButton />
         <table>
             <thead>
                 <tr>
@@ -31,11 +31,7 @@ function TaskTable(){
             </thead>
             <tbody>
                 {
-                tasks.map(task => {
-                    return(
-                        <Task task={task} />
-                    )
-                })
+                    tasks.map(task => <Task task={task} />)
                 }
             </tbody>
         </table>   

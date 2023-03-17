@@ -1,0 +1,16 @@
+:root {
+    --blue-1: #3574F2;
+    --blue-2: #139DF2;
+    --sky-blue: #16CAF2;
+    --green: #36BF7F;
+    --yellow: #F2D0A7;
+}
+
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.delete {
+    background-color: red; /*boton delete */
+}

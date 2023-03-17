@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Form from './Form';
+import ReturnButton from './ReturnButton';
 
 function TaskForm({operation}){
     
@@ -52,13 +53,12 @@ function TaskForm({operation}){
 
     return(
         <>
-        {
-            <Form 
-                task={task}
-                handleSubmit={(e) => handleSubmit(e)}
-                handleInputs={(e) => handleInputs(e)}
-            />
-        }
+        <Form 
+            task={task}
+            handleSubmit={(e) => handleSubmit(e)}
+            handleInputs={(e) => handleInputs(e)}
+        />
+        <ReturnButton />
         </>
     
     )

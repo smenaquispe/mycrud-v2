@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import DeleteButton from './DeleteButton'
+import EditButton from './EditButton';
 import DoneCheckBox from './DoneCheckBox';
 
 function Task({task}){
@@ -9,7 +10,7 @@ function Task({task}){
             <td>{task.description}</td>
             <td>{task.date}</td>
             <td>
-                <Link to={`/edit/${task._id}`} ><button>Edit</button></Link> 
+                <EditButton id={task._id}/>
                 <DeleteButton id={task._id} />
                 <DoneCheckBox id={task._id} done={task.done} />
             </td>
