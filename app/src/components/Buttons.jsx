@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 export function Button({doTask, classTag, children}){
     return (
-        <button className={classTag} onClick={doTask} >{children}</button>
+        <button className={`custom-button ${classTag}`} onClick={doTask} >{children}</button>
     )
 }
 

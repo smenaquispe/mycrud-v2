@@ -18,22 +18,22 @@ function TaskTable(){
 
     return(
         <>
-        <AddButton />
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    tasks.map(task => <Task task={task} />)
-                }
-            </tbody>
-        </table>   
+            <table id='task-table'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        tasks.map(task => <Task task={task} />)
+                    }
+                </tbody>
+            </table>   
+            <AddButton />
         </>
     )
 }
