@@ -72,7 +72,6 @@ export const toggleDone = async (req, res) => {
 
 export const deleteTask = async (req,res) => {
     const {id} = req.body;
-    console.log(id)
 
     try{
         const response = await taskSchema.findOneAndDelete({ _id : id})
