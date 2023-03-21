@@ -157,3 +157,7 @@ para el task form
     display: flex;
     justify-content: space-between;
 }
+
+.line {
+    text-decoration-line: line-through;
+}
