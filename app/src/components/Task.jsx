@@ -13,6 +13,7 @@ function Task({task}){
                 <DoneCheckBox id={task._id} done={task.done} />
             </td>
         </tr>
+
     )
 }
 

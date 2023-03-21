@@ -40,7 +40,6 @@ function TaskForm({operation}){
         navigate('/')
     }
 
-
     // cuando el form cambia, el task se actualiza
     const handleInputs = (e) => {
         const { name, value } = e.target 

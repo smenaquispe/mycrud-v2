@@ -4,13 +4,14 @@
     --white: #F2EBBF;
     --yellow: #F3B562;
     --red: #F06060;
-
-
 }
-
 
 * {
     font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
 }
 
 #main-space {
@@ -96,4 +97,16 @@ botonones
     background-color: var(--red);
 }
 
-  
+/*
+checkbox
+*/
+
+.check-container{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

@@ -12,7 +12,7 @@ function DoneCheckBox({id, done}){
     }
 
     return (
-        <input onChange={e => doTask(e, id)} type="checkbox" name="done" id="done" checked={done} />
+        <input onChange={e => doTask(e, id)} type="checkbox" name="done"  checked={done} />
     )
 }
 
