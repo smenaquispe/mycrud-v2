@@ -27,7 +27,7 @@ To initialize the project, neccesary setup two directories
 That's it, be happy with this crud
 
 Picture1:
-[alt text](https://github.com/smenaquispe/mycrud-v2/blob/main/assets/1.png)
+![alt text](https://github.com/smenaquispe/mycrud-v2/blob/main/assets/1.png)
 
 Picture2:
-[alt text](https://github.com/smenaquispe/mycrud-v2/blob/main/assets/2.png)
+![alt text](https://github.com/smenaquispe/mycrud-v2/blob/main/assets/2.png)
