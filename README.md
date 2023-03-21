@@ -1,26 +1,33 @@
 # mycrud-v2
 
-Este es mi versión 2 del crud hecho con node
+It's my crud version 2, obviously better thant v1
 
-## teconologias:
+## techs:
 - express
 - node
 - mongoose
 - react js
 - react router dom
 
-Para inicializar el repositorio es necesario inicializar tanto backend como frontend
+To initialize the project, neccesary setup two directories
 
 ## Backend
 
-- Dirigirse hacia la carpeta `/backend`
-- Instalar todas las dependencias con `npm install` 
-- Luego correr el backend con `npm run start`
+- Go to `/backend`
+- Install packages with `npm install` 
+- Run backend with `npm run start`
 
 ## Frontend
 
-- Dirigirse hacia la carpeta `/app`
-- Instalar todas las dependencias con `npm install`
-- Creamos la imagen del proyecto `npm run build`
-- Inicializamos con `npm run dev`
+- Now you have to go `/app`
+- Run this command `npm install`
+- Just in case this one `npm run build`
+- Finally `npm run dev`
 
+That's it, be happy with this crud
+
+Picture1:
+[!](https://github.com/smenaquispe/mycrud-v2/blob/main/assets/1.png)
+
+Picture2:
+[!](https://github.com/smenaquispe/mycrud-v2/blob/main/assets/2.png)
