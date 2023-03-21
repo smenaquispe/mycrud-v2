@@ -88,13 +88,27 @@ botonones
     transform: scale(1.2, 1.2);
 }
 
-.edit {
+.edit, .submit {
     background-color: var(--green);
     color: white;
 }
 
-.delete {
+.delete, .return {
     background-color: var(--red);
+}
+
+.add {
+    background-color: var(--black);
+    color: white;
+    position: relative;
+    right: -85%;
+}
+
+#my-space {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
 }
 
 /*
@@ -109,4 +123,37 @@ checkbox
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+
+/*
+para el task form
+*/
+
+.taskForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-width: 500px;
+    gap: 10px;
+    margin: 10px;
+}
+
+.taskForm input, .taskForm textarea {
+    border-radius: 6px;
+    border: none;
+    padding: 10px;
+}
+
+.taskForm input[type='date']{
+    text-align: center;
+}
+
+.taskForm input:focus, .taskForm textarea:focus{
+    outline: 3px solid var(--yellow);
+}
+
+.container-buttons {
+    display: flex;
+    justify-content: space-between;
 }

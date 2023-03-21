@@ -28,23 +28,25 @@ function TaskTable(){
 
     return(
         <>
-            <table id='task-table'>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody onClick={handleUpdtateList}>
-                    {
-                        tasks.map(task => <Task task={task} />)
-                    }
-                </tbody>
-            </table>   
+            <div id="my-space">
+                <table id='task-table'>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody onClick={handleUpdtateList}>
+                        {
+                            tasks.map(task => <Task task={task} />)
+                        }
+                    </tbody>
+                </table>   
 
-            <AddButton />
+                <AddButton />
+            </div>
         </>
     )
 }
