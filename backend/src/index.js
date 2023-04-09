@@ -4,12 +4,16 @@ import { config } from 'dotenv';
 import mongoose from 'mongoose'
 import router from './routes/tasks.routes.js'
 import cors from 'cors'
+import compression from 'compression'
+import helmet from 'helmet'
 
 config();
 
 const app = express();
 const port = process.env.PORT || 9000;
 
+app.use(compression())
+app.use(helmet())
 app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
