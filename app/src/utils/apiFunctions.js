@@ -10,13 +10,11 @@ export async function doAction(op, task){
                 'Content-Type': 'application/json'
             },
             method: 'POST',
-            body: task,
-            node: 'no-cors'
+            body: task
         }
     } else {
         info = {
-            method: 'GET',
-            node: 'no-cors'
+            method: 'GET'
         }
     }
 
