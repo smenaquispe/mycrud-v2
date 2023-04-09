@@ -2,6 +2,9 @@
 
 It's my crud version 2, obviously better thant v1
 
+## Demo
+Backend deployed on railway [link](https://mycrud-v2-production.up.railway.app/tasks)
+
 ## What do I learn?
 I learnt to use react as a framework of js
 
