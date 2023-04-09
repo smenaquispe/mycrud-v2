@@ -12,9 +12,14 @@ config();
 const app = express();
 const port = process.env.PORT || 4000;
 
+const corsOrigin =  {
+    origin: ['http://localhost:5173', 'https://mycrud-v2-production.up.railway.app']
+  };
+  
+
 app.use(compression())
 app.use(helmet())
-app.use(cors())
+app.use(cors(corsOrigin))
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
