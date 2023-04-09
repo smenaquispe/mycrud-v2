@@ -12,14 +12,10 @@ config();
 const app = express();
 const port = process.env.PORT || 4000;
 
-const corsOptions =  {
-    origin: '*'
-};
-  
 
 app.use(compression())
 app.use(helmet())
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

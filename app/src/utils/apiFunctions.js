@@ -25,7 +25,10 @@ export async function doAction(op, task){
     )
     .then(res => res.json())
     .then(res => res)
-    .catch(console.warn)
+    .catch(err => {
+        console.warn(err)
+        return err
+    })
 
 
     return response
