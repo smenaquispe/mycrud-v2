@@ -24,4 +24,4 @@ const taskSchema = mongoose.Schema({
 
 })
 
-export default mongoose.model("Task",taskSchema);
+export default mongoose.model("Task",taskSchema,'tasks',{ writeConcern: { w: "majority" } });
