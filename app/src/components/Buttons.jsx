@@ -70,7 +70,7 @@ export function ReturnButton(){
     const navigate = useNavigate()
 
     return (
-        <Button classTag={'return'} doTask={() => navigate('/')}>
+        <Button classTag={'return'} doTask={() => navigate('/app')}>
             Regresar
         </Button>
     )
