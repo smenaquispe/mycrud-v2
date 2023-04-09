@@ -1,4 +1,4 @@
-const URL = import.meta.env.VITE_API_URI
+let URL = import.meta.env.VITE_API_URI
 
 export async function doAction(op, task){
     
@@ -18,7 +18,9 @@ export async function doAction(op, task){
         }
     }
 
-    const response = await fetch(URL + op, 
+    op ? URL += op : URL
+
+    const response = await fetch(URL, 
         info
     )
     .then(res => res.json())
