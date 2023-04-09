@@ -9,7 +9,8 @@ export const getTasks = async (req,res) => {
         date.setDate(date.getDate() + 1);
         el.date = dateFormat(date,"dd-mm-yyyy");
     });
-    
+
+    res.set('Access-Control-Allow-Origin', '*');
     res.send(JSON.stringify(list));
 }
 
@@ -19,6 +20,7 @@ export const createTask = async (req, res) => {
         const task = taskSchema(req.body);    
         const saved = await task.save();
         console.log(saved);
+        res.set('Access-Control-Allow-Origin', '*');
         res.send(JSON.stringify({'Status' : 'Task created'}))
     } catch (error) {
         console.log(error)
@@ -35,6 +37,7 @@ export const getTaskById = async (req,res) => {
 
     task.date = dateFormat(date,"yyyy-mm-dd");
 
+    res.set('Access-Control-Allow-Origin', '*');
     res.send(JSON.stringify(task))
 }
 
@@ -42,6 +45,8 @@ export const editTask = async (req, res) => {
     const {id} = req.body;
     try {
         const response = await taskSchema.findByIdAndUpdate(id,req.body)
+
+        res.set('Access-Control-Allow-Origin', '*');
         res.send(JSON.stringify({
             'Status' : `Task ${id} was edited`, 
             'Response' : response
@@ -61,6 +66,7 @@ export const toggleDone = async (req, res) => {
 
         const status = task.done ? 'done' : 'undone'
         
+        res.set('Access-Control-Allow-Origin', '*');
         res.send(JSON.stringify({
             'Status' : `Task ${id} is ${status}`, 
             'Response' : response
@@ -75,6 +81,8 @@ export const deleteTask = async (req,res) => {
 
     try{
         const response = await taskSchema.findOneAndDelete({ _id : id})
+        
+        res.set('Access-Control-Allow-Origin', '*');
         res.send(JSON.stringify({
             'Status' : `Task ${id} was deleted`,
             'Response' : response
