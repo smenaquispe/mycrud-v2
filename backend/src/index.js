@@ -15,7 +15,10 @@ const port = process.env.PORT || 4000;
 
 app.use(compression())
 app.use(helmet())
-app.use(cors())
+app.use(cors({
+    origin: 'https://mycrud-v2-gxrg-57dqj7yqs-smenaquispe.vercel.app/',
+    methods: ['GET','POST']
+}))
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
