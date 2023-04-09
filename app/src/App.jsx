@@ -1,5 +1,5 @@
-import { Routes, Route, Link } from 'react-router-dom'
-import TaskTable from './components/taskTable.jsx'
+import { Routes, Route } from 'react-router-dom'
+import TaskTable from './components/TaskTable.jsx'
 import TaskForm from './components/TaskForm.jsx'
 import './css/App.css'
 import Header from './components/Header.jsx'
