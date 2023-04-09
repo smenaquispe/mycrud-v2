@@ -2,6 +2,9 @@
 
 It's my crud version 2, obviously better thant v1
 
+## What do I learn?
+I learnt to use react as a framework of js
+
 ## techs:
 - express
 - node
