@@ -1,5 +1,3 @@
-let URL = import.meta.env.VITE_API_URI
-
 export async function doAction(op, task){
     
     let info = {}
@@ -20,6 +18,7 @@ export async function doAction(op, task){
         }
     }
 
+    let URL = import.meta.env.VITE_API_URI  
     op ? URL += op : URL
 
     const response = await fetch(URL, 

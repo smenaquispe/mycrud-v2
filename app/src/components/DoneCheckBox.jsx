@@ -3,7 +3,7 @@ import { doAction } from "../utils/apiFunctions";
 function DoneCheckBox({id, done}){
     
     // marcar una task como hecho
-    const doTask = (e, id) => {
+    const doTask = (e) => {
 
         doAction('toggleDone', JSON.stringify({id}))
         .then(res => res)
@@ -12,7 +12,7 @@ function DoneCheckBox({id, done}){
     }
 
     return (
-        <input onChange={e => doTask(e, id)} type="checkbox" name="done"  checked={done} />
+        <input onChange={e => doTask(e)} type="checkbox" name="done"  checked={done} />
     )
 }
 
