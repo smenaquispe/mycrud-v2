@@ -1,3 +1,5 @@
+const URL = import.meta.env.VITE_API_URI
+
 export async function doAction(op, task){
     
     let info = {}
@@ -16,7 +18,7 @@ export async function doAction(op, task){
         }
     }
 
-    const response = await fetch(`http://localhost:4000/tasks/${op || ''}`, 
+    const response = await fetch(URL + op, 
         info
     )
     .then(res => res.json())
